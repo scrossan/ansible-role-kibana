@@ -16,6 +16,24 @@
     state: "{{ kibana_service_state }}"
     enabled: "{{ kibana_service_enabled }}"
 
+- name: Create certs directory.
+  file:
+    path: "{{ kibana_certs_path }}"
+    state: directory
+    owner: root
+    group: kibana
+    mode: 0755
+
+- name: Copy Elasticsearch CA certificates.
+  copy:
+    src: "{{ item }}"
+    dest: "{{ kibana_certs_path }}/{{ item | basename }}"
+    owner: root
+    group: root
+    mode: 0644
+  loop: "{{ kibana_elasticsearch_ca_certificates }}"
+  when: kibana_elasticsearch_ca_certificates | length > 0
+
 - name: Copy Kibana configuration.
   template:
     src: "{{ kibana_config_template }}"
