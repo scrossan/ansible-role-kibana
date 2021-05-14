@@ -43,6 +43,7 @@
   loop:
     - "{{ kibana_ssl_certificate }}"
     - "{{ kibana_ssl_key }}"
+  when: kibana_ssl_certificate and kibana_ssl_key
 
 - name: Copy Kibana configuration.
   template:

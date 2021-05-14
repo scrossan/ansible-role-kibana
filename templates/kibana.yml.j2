@@ -61,6 +61,9 @@ elasticsearch.password: "{{ kibana_elasticsearch_password }}"
 server.ssl.enabled: true
 server.ssl.certificate: {{ kibana_certs_path }}/{{ kibana_ssl_certificate | basename }}
 server.ssl.key: {{ kibana_certs_path }}/{{ kibana_ssl_key | basename }}
+{% if kibana_ssl_key_passphrase %}
+server.ssl.keyPassphrase: {{ kibana_ssl_key_passphrase }}
+{% endif %}
 {% else %}
 #server.ssl.enabled: false
 #server.ssl.certificate: /path/to/your/server.crt

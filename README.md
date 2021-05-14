@@ -58,6 +58,10 @@ If Elasticsearch is secured with HTTPS, set the CA certificates so that Kibana c
 
 To configure Kibana to serve traffic using HTTPS, set the path to the certificate and key relative to your playbook.
 
+    kibana_ssl_key_passphrase: ""
+
+If the SSL key is encrypted, set the passphrase so that Kibana can decrypt the key.
+
 ## Dependencies
 
 None.
