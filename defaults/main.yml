@@ -19,3 +19,6 @@ kibana_elasticsearch_password: ""
 kibana_elasticsearch_ca_certificates: []
 
 kibana_certs_path: /etc/kibana/certs
+
+kibana_ssl_certificate: ""
+kibana_ssl_key: ""

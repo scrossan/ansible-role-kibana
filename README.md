@@ -53,6 +53,11 @@ The path to store SSL certificates and keys used by Kibana.
 
 If Elasticsearch is secured with HTTPS, set the CA certificates so that Kibana can verify the connection.
 
+    kibana_ssl_certificate: ""
+    kibana_ssl_key: ""
+
+To configure Kibana to serve traffic using HTTPS, set the path to the certificate and key relative to your playbook.
+
 ## Dependencies
 
 None.

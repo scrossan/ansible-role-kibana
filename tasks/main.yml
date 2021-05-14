@@ -24,7 +24,7 @@
     group: kibana
     mode: 0755
 
-- name: Copy Elasticsearch CA certificates.
+- name: Copy Elasticsearch certificates.
   copy:
     src: "{{ item }}"
     dest: "{{ kibana_certs_path }}/{{ item | basename }}"
@@ -32,7 +32,17 @@
     group: root
     mode: 0644
   loop: "{{ kibana_elasticsearch_ca_certificates }}"
-  when: kibana_elasticsearch_ca_certificates | length > 0
+
+- name: Copy Kibana HTTPS certificate and key.
+  copy:
+    src: "{{ item }}"
+    dest: "{{ kibana_certs_path }}/{{ item | basename }}"
+    owner: kibana
+    group: kibana
+    mode: 0600
+  loop:
+    - "{{ kibana_ssl_certificate }}"
+    - "{{ kibana_ssl_key }}"
 
 - name: Copy Kibana configuration.
   template:
