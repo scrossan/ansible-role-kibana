@@ -138,3 +138,8 @@ elasticsearch.ssl.certificateAuthorities: [
 # The default locale. This locale can be used in certain circumstances to substitute any missing
 # translations.
 #i18n.defaultLocale: "en"
+
+{% if kibana_extra_config %}
+# Additional configuration options.
+{{ kibana_extra_config | to_nice_yaml }}
+{% endif %}

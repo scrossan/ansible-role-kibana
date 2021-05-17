@@ -23,3 +23,5 @@ kibana_certs_path: /etc/kibana/certs
 kibana_ssl_certificate: ""
 kibana_ssl_key: ""
 kibana_ssl_key_passphrase: ""
+
+kibana_extra_config: {}

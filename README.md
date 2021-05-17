@@ -62,6 +62,10 @@ To configure Kibana to serve traffic using HTTPS, set the path to the certificat
 
 If the SSL key is encrypted, set the passphrase so that Kibana can decrypt the key.
 
+    kibana_extra_config: {}
+
+If you wish to set any other config options in `kibana.yml`, set them literally with this variable.
+
 ## Dependencies
 
 None.
